@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251aef256f6eee740b40a19ff5a6d7d6, type: 3}
+  m_Name: "BoardData_\uAC1C\uAD6C\uB9AC"
+  m_EditorClassIdentifier: 
+  codeName: "\uAC1C\uAD6C\uB9AC"
+  index: 2
+  enName: frog
+  species: 0
+  blackSpriteList:
+  - {fileID: 21300000, guid: dcdab39cc91a3c34f81d9dd788990f96, type: 3}
+  - {fileID: 21300000, guid: ad6e7c0f305b5b441b1084f52c1359fd, type: 3}
+  - {fileID: 21300000, guid: 3e463b5dea618594491cb0889baf9e72, type: 3}
+  - {fileID: 21300000, guid: 78e28ca363c7aeb41b7fd02dd09c1920, type: 3}
+  - {fileID: 21300000, guid: 156494f0561fc5545a5736f27ff5823f, type: 3}
+  - {fileID: 21300000, guid: 33ad6cebd94893247b55368521e05379, type: 3}
+  colorSpriteList:
+  - {fileID: 21300000, guid: 4b343493470399446aac9d47cd90d2a1, type: 3}
+  - {fileID: 21300000, guid: 00b6d81895901a743a56558740ad1a93, type: 3}
+  - {fileID: 21300000, guid: 2014cf52bba33354792686de4cb08c81, type: 3}
+  - {fileID: 21300000, guid: dab59d62bd8f16548bb20a1f8dd1119f, type: 3}
+  - {fileID: 21300000, guid: 7fdc95742fbe7694187c58c6522f29a1, type: 3}
+  - {fileID: 21300000, guid: 03bcb6184f13a08469aa29190afe5b08, type: 3}

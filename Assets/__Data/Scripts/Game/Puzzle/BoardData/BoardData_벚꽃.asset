@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251aef256f6eee740b40a19ff5a6d7d6, type: 3}
+  m_Name: "BoardData_\uBC9A\uAF43"
+  m_EditorClassIdentifier: 
+  codeName: "\uBC9A\uAF43"
+  index: 0
+  enName: cherryBlossom
+  species: 1
+  blackSpriteList:
+  - {fileID: 21300000, guid: b2257f5fb2715384c9f111805fc94367, type: 3}
+  - {fileID: 21300000, guid: 9003bd2793940b741ae42ddbd33e7a15, type: 3}
+  - {fileID: 21300000, guid: 8fc1fc5a22c203440bebac473bb8e539, type: 3}
+  - {fileID: 21300000, guid: 385cd22fefade7149b9254258d26a984, type: 3}
+  colorSpriteList:
+  - {fileID: 21300000, guid: 08187d0ae5788b64cbd7ace9262a28ba, type: 3}
+  - {fileID: 21300000, guid: bdac843d9c748824a93aab2da63f64c6, type: 3}
+  - {fileID: 21300000, guid: f91cb3cf1bb243646b7d5287f192c077, type: 3}
+  - {fileID: 21300000, guid: 7fbb0e5f271471e44968a5d329f478d2, type: 3}

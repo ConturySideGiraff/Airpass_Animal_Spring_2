@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251aef256f6eee740b40a19ff5a6d7d6, type: 3}
+  m_Name: "BoardData_\uD638\uB791\uB098\uBE44"
+  m_EditorClassIdentifier: 
+  codeName: "\uD638\uB791\uB098\uBE44"
+  index: 3
+  enName: butterfly
+  species: 0
+  blackSpriteList:
+  - {fileID: 21300000, guid: cb20c79bd1d3f384d975d8ad6f23af1a, type: 3}
+  - {fileID: 21300000, guid: 56dde005610a583438649e26361a4b04, type: 3}
+  - {fileID: 21300000, guid: f6a2405e25eb2a4458d39c571f5f1d58, type: 3}
+  - {fileID: 21300000, guid: d7d5be8a039c9b34bbe70394b9607829, type: 3}
+  - {fileID: 21300000, guid: c6d49a2c8a6b58b4cbca08637db11a20, type: 3}
+  - {fileID: 21300000, guid: dc88b395d57b8424eaad11cf36554f59, type: 3}
+  colorSpriteList:
+  - {fileID: 21300000, guid: 08c65e2b3d4359140a84ff06080b6178, type: 3}
+  - {fileID: 21300000, guid: 08d60df7235735f439dfea34c749e1d2, type: 3}
+  - {fileID: 21300000, guid: e5b8dca11094d924abfe08e2a073e283, type: 3}
+  - {fileID: 21300000, guid: d8997a0e6882b4a45b91054a9a601b02, type: 3}
+  - {fileID: 21300000, guid: 729ccda0089ba514dadd78a8036bfd4e, type: 3}
+  - {fileID: 21300000, guid: 99c112175baf53043a54bf8cbcc25b55, type: 3}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251aef256f6eee740b40a19ff5a6d7d6, type: 3}
+  m_Name: "BoardData_\uBCD1\uC544\uB9AC"
+  m_EditorClassIdentifier: 
+  codeName: "\uBCD1\uC544\uB9AC"
+  index: 4
+  enName: chick
+  species: 0
+  blackSpriteList:
+  - {fileID: 21300000, guid: e175dc63c5864214e8b8d19cf9e10203, type: 3}
+  - {fileID: 21300000, guid: 9657a43afcae9b54a9a277600eb2e406, type: 3}
+  - {fileID: 21300000, guid: 380bd0e13a4a4a24982001814aebc35c, type: 3}
+  - {fileID: 21300000, guid: 7c53c9579b1572148b4c89093100f92d, type: 3}
+  - {fileID: 21300000, guid: ac3241462d430e04aadb4cf27f562ed2, type: 3}
+  - {fileID: 21300000, guid: 3b4ac0a61bc9f95488112caf76382ad5, type: 3}
+  colorSpriteList:
+  - {fileID: 21300000, guid: 865a723d73e808340adc5d47ca46aa13, type: 3}
+  - {fileID: 21300000, guid: 3dd4ac729e882c247947e0020939a3c8, type: 3}
+  - {fileID: 21300000, guid: 82f7e56eea986904b9f17d70893ff763, type: 3}
+  - {fileID: 21300000, guid: a4b2892754edd6d499c69a4b060906e2, type: 3}
+  - {fileID: 21300000, guid: fbe9bc4dcc64c4341b13c888aabb2bff, type: 3}
+  - {fileID: 21300000, guid: ec81c6d62e980d34b80aae5b0b5bd1cc, type: 3}

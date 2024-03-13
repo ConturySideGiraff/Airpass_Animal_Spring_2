@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251aef256f6eee740b40a19ff5a6d7d6, type: 3}
+  m_Name: "BoardData_\uAC1C\uB098\uB9AC"
+  m_EditorClassIdentifier: 
+  codeName: "\uAC1C\uB098\uB9AC"
+  index: 1
+  enName: forsythia
+  species: 1
+  blackSpriteList:
+  - {fileID: 21300000, guid: 510b2589159610441bb0e4e4581aaef8, type: 3}
+  - {fileID: 21300000, guid: aa487c1fd93324845ab13b1f54bfb26a, type: 3}
+  - {fileID: 21300000, guid: 27a2ba11c2d02df47937c91325c836b9, type: 3}
+  - {fileID: 21300000, guid: c1dac1df429697c428cb7bea4baa60dd, type: 3}
+  colorSpriteList:
+  - {fileID: 21300000, guid: 3665e9837a9f4a2499c61b74737f3216, type: 3}
+  - {fileID: 21300000, guid: 53554e3c1011c614c82ee70257eec030, type: 3}
+  - {fileID: 21300000, guid: 86b4547d990fdc24ca3b2fc289ea1510, type: 3}
+  - {fileID: 21300000, guid: e6b70ab06fade1f4e84c00f262467bad, type: 3}
