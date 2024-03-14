@@ -6,9 +6,6 @@ using UnityEngine;
 
 public abstract class Lure : MonoBehaviour
 {
-    public float lureOnceDuration;
-
-    
     public abstract bool IsCanLure { get; }
     
     public bool IsLure { get; protected set; }

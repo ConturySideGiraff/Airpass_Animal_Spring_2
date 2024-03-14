@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace CSG.Puzzle
@@ -10,7 +11,9 @@ namespace CSG.Puzzle
     {
         [SerializeField] private Text _subjectText;
         [Space] 
-        [SerializeField] private PeaceMoveHandler _peaceMoveHandler;
+        [SerializeField] private PieceMoveHandler pieceMoveHandler;
+        [SerializeField] private PieceFocusHandler pieceFocusHandler;
+        [FormerlySerializedAs("_pointTouch")] [SerializeField] private BoardPointTouchHandler pointTouchHandler;
         [SerializeField] private BoardPointEnd _pointEnd;
         [Space]
         [SerializeField] private GameObject _animalFrame;
@@ -18,23 +21,27 @@ namespace CSG.Puzzle
         [Space]
         [SerializeField] private List<BoardData> _boardDataList = new List<BoardData>(7);
 
-        private Dictionary<int, BoardUnitData> _boardUnitDataDic;
+        private static Dictionary<int, BoardRuntimeData> _boardRuntimeDataDic;
+
+        private static int _currentIndex;
         
         public void Init()
         {
             _boardDataList = _boardDataList.OrderBy(d => d.Index).ToList();
 
-            _boardUnitDataDic = new Dictionary<int, BoardUnitData>();
+            _boardRuntimeDataDic = new Dictionary<int, BoardRuntimeData>();
             
             foreach (BoardData boardData in _boardDataList)
             {
-                _boardUnitDataDic.Add(boardData.Index, new BoardUnitData(boardData));
+                _boardRuntimeDataDic.Add(boardData.Index, new BoardRuntimeData(boardData));
             }
         }
 
         public void OnSelect(int index)
         {
-            BoardUnitData data = _boardUnitDataDic[index];   
+            _currentIndex = index;
+            
+            BoardRuntimeData data = _boardRuntimeDataDic[index];   
 
             if (ReferenceEquals(data, null))
             {
@@ -57,11 +64,25 @@ namespace CSG.Puzzle
             }
 
             BoardData scriptData = data.ScriptData;
+            BoardRuntimeData runtimeData = _boardRuntimeDataDic[index];
             
-            _peaceMoveHandler.Set(scriptData.Species, scriptData.ColorSpriteList);
+            pieceMoveHandler.Set(scriptData.Species, scriptData.ColorSpriteList, runtimeData);
+            pieceFocusHandler.Set(scriptData.Species, runtimeData);
+            
+            pointTouchHandler.Set(scriptData.Species);
             _pointEnd.BoardImageSet(scriptData.Species, data.ScriptData.BlackSpriteList);
             
             gameObject.SetActive(true);
+        }
+
+        public static void PieceCorrect(int index)
+        {
+            _boardRuntimeDataDic[_currentIndex].correctIndexArr[index] = true;
+        }
+
+        public static void BoardClear()
+        {
+            _boardRuntimeDataDic[_currentIndex].IsClear = true;
         }
     }
 }

@@ -6,17 +6,6 @@ using CSG.Puzzle;
 
 public class PuzzleGame : Game
 {
-    public enum PuzzleSet
-    {
-        CherryBlossom ,
-        Forsythia,
-        Frog = 2,
-        Butterfly = 3,
-        Chick = 4,
-        Magnolia,
-        Azalea,
-    }
-    
     [SerializeField] private BoardHandler _boardHandler;
 
     private void Awake()
@@ -32,6 +21,7 @@ public class PuzzleGame : Game
     public override void Init()
     {
         _boardHandler.Init();
+        _boardHandler.gameObject.SetActive(false);
     }
 
     protected override void Set()

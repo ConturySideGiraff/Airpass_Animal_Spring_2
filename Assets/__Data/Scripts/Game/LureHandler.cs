@@ -11,8 +11,9 @@ public abstract class LureHandler : MonoBehaviour
 {
     [SerializeField] protected float _timer;
     [SerializeField] protected float _timeMax = 5.0f;
-    [SerializeField] protected float _lureOnceDuration = 1.0f;
+    [Space]
     [SerializeField] protected List<Lure> _lureList = new List<Lure>();
+    [SerializeField] protected List<VrButton> _buttonList = new List<VrButton>();
     
     protected bool _isLureWait;
 
@@ -30,11 +31,22 @@ public abstract class LureHandler : MonoBehaviour
 
     protected virtual void OnEnable()
     {
+        foreach (VrButton vrButton in _buttonList)
+        {
+            vrButton.Btn.onClick.RemoveListener(OnLureReset);
+            vrButton.Btn.onClick.AddListener(OnLureReset);
+        }
+
         LureWaitStart();
     }
 
     protected virtual void OnDisable()
     {
+        foreach (VrButton vrButton in _buttonList)
+        {
+            vrButton.Btn.onClick.RemoveListener(OnLureReset);
+        }
+        
         LureWaitStop();
     }
 
@@ -81,8 +93,6 @@ public abstract class LureHandler : MonoBehaviour
             yield return null;
         }
     }
-
- 
 
     public void OnLureReset()
     {
