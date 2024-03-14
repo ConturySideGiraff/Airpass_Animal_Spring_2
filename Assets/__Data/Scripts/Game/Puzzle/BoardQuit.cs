@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using MonLab;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace CSG.Puzzle
@@ -26,6 +27,11 @@ namespace CSG.Puzzle
                 return;
             }
             
+            if(BoardPointTouchHandler.isOnBoardCorrectDelay)
+            {
+                return;
+            }
+
             transform.parent.gameObject.SetActive(false);
         }
     }

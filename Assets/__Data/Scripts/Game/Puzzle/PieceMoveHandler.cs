@@ -55,7 +55,7 @@ namespace CSG.Puzzle
 
                 else
                 {
-                    foreach (PieceMove move in _moveFlowerList)
+                    foreach (PieceMove move in _moveAnimalList)
                     {
                         if (move.IsMoving)
                         {
@@ -80,7 +80,7 @@ namespace CSG.Puzzle
                     {
                         int runtimeIndex = runtimeData.startPointIndexArr[i];
 
-                        if (runtimeData.correctIndexArr[i])
+                        if (runtimeData.correctIndexArr[runtimeIndex])
                         {
                             _moveAnimalList[runtimeIndex].transform.position = _pointEnd.AnimalPointList[runtimeIndex].position;
                             _moveAnimalList[runtimeIndex].transform.localScale = Vector3.one;
@@ -96,10 +96,11 @@ namespace CSG.Puzzle
                             _moveAnimalList[runtimeIndex].isCorrect = false;
 
 
-                            
-                            _imgAnimalList[i].sprite = colorSpriteList[i];
-                            _imgAnimalList[i].SetNativeSize();
+                      
                         }
+                              
+                        _imgAnimalList[i].sprite = colorSpriteList[i];
+                        _imgAnimalList[i].SetNativeSize();
                         
                         _moveAnimalList[runtimeIndex].index = runtimeIndex;
                         
@@ -116,12 +117,11 @@ namespace CSG.Puzzle
                     {
                         int runtimeIndex = runtimeData.startPointIndexArr[i];
 
-                        if (runtimeData.correctIndexArr[i])
+                        if (runtimeData.correctIndexArr[runtimeIndex])
                         {
                             _moveFlowerList[runtimeIndex].transform.position = _pointEnd.FlowerPointList[runtimeIndex].position;
                             _moveFlowerList[runtimeIndex].transform.localScale = Vector3.one;
                             _moveFlowerList[runtimeIndex].isCorrect = true;
-
                         }
 
                         else
@@ -132,9 +132,11 @@ namespace CSG.Puzzle
                             _moveFlowerList[runtimeIndex].transform.localScale = Vector3.one * 0.8f;
                             _moveFlowerList[runtimeIndex].isCorrect = true;
                             
-                            _imgFlowerList[i].sprite = colorSpriteList[i];
-                            _imgFlowerList[i].SetNativeSize();
+                        
                         }
+                        
+                        _imgFlowerList[i].sprite = colorSpriteList[i];
+                        _imgFlowerList[i].SetNativeSize();
                         
                         _moveFlowerList[runtimeIndex].index = runtimeIndex;
                     }

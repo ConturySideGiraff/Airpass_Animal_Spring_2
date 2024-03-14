@@ -15,7 +15,6 @@ namespace CSG.Puzzle
         
         public Transform targetTransform;
 
-        
         public int index;
 
         public void MoveStart()
@@ -69,10 +68,13 @@ namespace CSG.Puzzle
                 yield return null;
             }
 
+            AudioManager.Instance.SfxPlay(AudioClipName.AnsCorrect);
+            
             transform.position = targetTransform.position;
             transform.localScale = Vector3.one;
 
             IsMoving = false;
+            
             _coMove = null;
         }
     }

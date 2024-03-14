@@ -9,11 +9,12 @@ namespace CSG.Puzzle
 {
     public class BoardPointTouchHandler : BoardPoint
     {
+        [Space] [SerializeField] protected BoardFailPanel _failPanel;
         [SerializeField] protected PieceMoveHandler _pieceMoveHandler;
-        
+
         private List<VrButton> _flowerButtonList = new List<VrButton>();
         private List<VrButton> _animalButtonList = new List<VrButton>();
-        
+
         protected override void Awake()
         {
             base.Awake();
@@ -21,15 +22,15 @@ namespace CSG.Puzzle
             foreach (Transform t in _flowerPointList)
             {
                 VrButton vrBtn = t.gameObject.GetComponent<VrButton>();
-                
+
                 Image img = vrBtn.gameObject.GetComponent<Image>();
                 Color color = img.color;
                 color.a = 0.0f;
                 img.color = color;
-                
+
                 _flowerButtonList.Add(vrBtn);
             }
-            
+
             foreach (Transform t in _animalPointList)
             {
                 VrButton vrBtn = t.gameObject.GetComponent<VrButton>();
@@ -38,24 +39,29 @@ namespace CSG.Puzzle
                 Color color = img.color;
                 color.a = 0.0f;
                 img.color = color;
-                
+
                 _animalButtonList.Add(vrBtn);
             }
 
             for (int i = 0; i < _flowerButtonList.Count; i++)
             {
                 int index = i;
-                
+
                 _flowerButtonList[index].Btn.onClick.AddListener(() => OnDown(index));
             }
-            
-            
+
+
             for (int i = 0; i < _animalPointList.Count; i++)
             {
                 int index = i;
-                
+
                 _animalButtonList[index].Btn.onClick.AddListener(() => OnDown(index));
             }
+        }
+
+        private void OnDisable()
+        {
+            isOnBoardCorrectDelay = false;
         }
 
         public void Set(Species species)
@@ -92,8 +98,8 @@ namespace CSG.Puzzle
             {
                 OnAnswerFail();
             }
-            
-            currentFocus.Off();
+
+            currentFocus.Off(false);
 
             PieceFocusHandler.CurrentFocus = null;
         }
@@ -103,15 +109,50 @@ namespace CSG.Puzzle
             int index = PieceFocusHandler.CurrentFocus.index;
 
             PieceMove move = _pieceMoveHandler.Get(index);
-            
+
             move.MoveStart();
 
-            BoardHandler.PieceCorrect(index);
+            bool isBoardClear = BoardHandler.PieceCorrect(index);
+
+            if (isBoardClear)
+            {
+                StartCoroutine(OnBoardCorrect());
+            }
+        }
+
+        public static bool isOnBoardCorrectDelay;
+
+        private IEnumerator OnBoardCorrect()
+        {
+            isOnBoardCorrectDelay = true;
+
+            for (float t = 0.0f; t <= 1.5f; t += TimerManager.Instance.Reduce)
+            {
+                yield return null;
+            }
+
+            BoardHandler.BoardClear();
+
+            transform.parent.gameObject.SetActive(false);
         }
 
         private void OnAnswerFail()
         {
-            Debug.Log("fail");
+            AudioManager.Instance.SfxPlay(AudioClipName.AnsFail);
+            
+            StartCoroutine(OnBoardFail());
+        }
+
+        private IEnumerator OnBoardFail()
+        {
+            _failPanel.Active(true);
+            
+            for (float t = 0.0f; t <= 1.5f; t += TimerManager.Instance.Reduce)
+            {
+                yield return null;
+            }
+            
+            _failPanel.Active(false);
         }
     }
 }

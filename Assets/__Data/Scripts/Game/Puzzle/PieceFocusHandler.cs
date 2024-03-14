@@ -36,7 +36,7 @@ namespace CSG.Puzzle
                 return;
             }
             
-            CurrentFocus.Off();
+            CurrentFocus.Off(false);
             CurrentFocus = null;
         }
 
@@ -47,7 +47,7 @@ namespace CSG.Puzzle
             if (ReferenceEquals(CurrentFocus, null))
             {
                 CurrentFocus = focus;
-                CurrentFocus.On();
+                CurrentFocus.On(true);
             }
 
             else
@@ -57,12 +57,12 @@ namespace CSG.Puzzle
                     return;
                 }
 
-                CurrentFocus.Off();
+                CurrentFocus.Off(true);
                 CurrentFocus = null;
             }
         }
 
-        public void Set(Species species, BoardRuntimeData runtimeData)
+        public void Set(Species species)
         {
             switch (species)
             {

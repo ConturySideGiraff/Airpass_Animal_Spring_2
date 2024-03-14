@@ -18,6 +18,8 @@ public class UIHome : UIPage
 
     private void OnEnable()
     {
+        AudioManager.Instance.SfxPlay(AudioClipName.Popup);
+
         TimerManager.Instance.QuitTimerStart(GameManager.Instance.ToQuit, 60 *10);
     }
 

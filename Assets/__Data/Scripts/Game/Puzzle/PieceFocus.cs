@@ -37,16 +37,23 @@ namespace CSG.Puzzle
             _selectObj.SetActive(true);
         }
 
-        public void On()
+        public void On(bool isResize)
         {
-            transform.localScale = Vector3.one * 0.85f;
+            if (isResize)
+            {
+                transform.localScale = Vector3.one * 0.85f;
+            }
             
             _selectObj.SetActive(true);
         }
 
-        public void Off()
+        public void Off(bool isResize)
         {
-            transform.localScale = Vector3.one * 0.80f;
+            if (isResize)
+            {
+                transform.localScale = Vector3.one * 0.80f;
+
+            }
 
             _selectObj.SetActive(false);
         }

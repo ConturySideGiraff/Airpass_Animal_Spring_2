@@ -10,12 +10,27 @@ namespace CSG.Puzzle
         
         public override void Play()
         {
-            throw new System.NotImplementedException();
+            IsLure = true;
+            
+            _coLure = CoLure();
+            StartCoroutine(_coLure);
         }
 
         public override void Stop()
         {
-            throw new System.NotImplementedException();
+            IsLure = false;
+
+            if(!ReferenceEquals(_coLure, null)) StopCoroutine(_coLure);
+            _coLure = null;
+            
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
+        
+        private IEnumerator _coLure;
+
+        private IEnumerator CoLure()
+        {
+            yield return null;
         }
     }
 }

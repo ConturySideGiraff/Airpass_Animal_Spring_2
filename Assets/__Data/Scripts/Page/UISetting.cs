@@ -29,6 +29,8 @@ public class UISetting : UIPage
 
     private void OnEnable()
     {
+        AudioManager.Instance.SfxPlay(AudioClipName.Popup);
+        
         TimerManager.Instance.QuitTimerStart(delegate
         {
             UIManager.Instance.On<UIHome>();

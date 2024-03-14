@@ -11,8 +11,6 @@ namespace CSG.Puzzle
         private List<Image> _flowerImageList = new List<Image>();
         private List<Image> _animalImageList = new List<Image>();
         
-        
-        
         protected override void Awake()
         {
             base.Awake();

@@ -63,11 +63,13 @@ namespace CSG.Puzzle
                     break;
             }
 
+            Debug.Log(data.ScriptData.CodeName);
+            
             BoardData scriptData = data.ScriptData;
             BoardRuntimeData runtimeData = _boardRuntimeDataDic[index];
             
             pieceMoveHandler.Set(scriptData.Species, scriptData.ColorSpriteList, runtimeData);
-            pieceFocusHandler.Set(scriptData.Species, runtimeData);
+            pieceFocusHandler.Set(scriptData.Species);
             
             pointTouchHandler.Set(scriptData.Species);
             _pointEnd.BoardImageSet(scriptData.Species, data.ScriptData.BlackSpriteList);
@@ -75,14 +77,24 @@ namespace CSG.Puzzle
             gameObject.SetActive(true);
         }
 
-        public static void PieceCorrect(int index)
+        public static bool PieceCorrect(int index)
         {
             _boardRuntimeDataDic[_currentIndex].correctIndexArr[index] = true;
+
+            foreach (bool b in _boardRuntimeDataDic[_currentIndex].correctIndexArr)
+            {
+                if (!b)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public static void BoardClear()
         {
-            _boardRuntimeDataDic[_currentIndex].IsClear = true;
+             _boardRuntimeDataDic[_currentIndex].IsClear = true;
         }
     }
 }

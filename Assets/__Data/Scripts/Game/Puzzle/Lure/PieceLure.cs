@@ -26,8 +26,6 @@ namespace CSG.Puzzle
 
            if(!ReferenceEquals(_coLure, null)) StopCoroutine(_coLure);
            _coLure = null;
-
-           transform.localScale = Vector3.one * 0.8f;
         }
 
         private IEnumerator _coLure;
