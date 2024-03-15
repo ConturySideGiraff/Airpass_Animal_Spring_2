@@ -7,6 +7,9 @@ namespace CSG.Puzzle
 {
     public class PieceFocusHandler : MonoBehaviour
     {
+        [SerializeField] private BoardLureHandler _flowerLureHandler;
+        [SerializeField] private BoardLureHandler _animalLureHandler;
+        [Space]
         [SerializeField]
         private List<PieceFocus> _flowerList = new List<PieceFocus>();
         [SerializeField]
@@ -67,6 +70,10 @@ namespace CSG.Puzzle
             switch (species)
             {
                 case Species.Animal:
+                    
+                    _flowerLureHandler.gameObject.SetActive(false);
+                    _animalLureHandler.gameObject.SetActive(true);
+                    
                     for (var i = 0; i < _flowerList.Count; i++)
                     {
                         _flowerList[i].gameObject.SetActive(false);
@@ -80,6 +87,9 @@ namespace CSG.Puzzle
 
                     break;
                 case Species.Flower:
+                    _flowerLureHandler.gameObject.SetActive(true);
+                    _animalLureHandler.gameObject.SetActive(false);
+                    
                     for (var i = 0; i < _flowerList.Count; i++)
                     {
                         _flowerList[i].index = i;

@@ -7,7 +7,6 @@ namespace CSG.Puzzle
 {
     public class BoardSelectHandler : MonoBehaviour
     {
-
         [SerializeField] private BoardHandler _boardHandler;
 
         private List<BoardSelect> _boardSelectList = new List<BoardSelect>();
@@ -23,6 +22,14 @@ namespace CSG.Puzzle
             {
                 int idx = i;
                 _boardSelectList[i].VrBtn.Btn.onClick.AddListener(() => OnSelect(idx));
+            }
+        }
+
+        private void OnEnable()
+        {
+            foreach (BoardSelect se in _boardSelectList)
+            {
+                se.gameObject.SetActive(true);
             }
         }
 

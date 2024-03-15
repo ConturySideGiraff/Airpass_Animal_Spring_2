@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = System.Object;
 
 namespace CSG.Puzzle
 {
     public class PieceMove : MonoBehaviour
     {
+        public Transform effectTransform;
+        
         public bool IsMoving; // { get; private set; }
         
         public bool isCorrect;
@@ -16,6 +19,8 @@ namespace CSG.Puzzle
         public Transform targetTransform;
 
         public int index;
+        
+        
 
         public void MoveStart()
         {
@@ -69,6 +74,16 @@ namespace CSG.Puzzle
             }
 
             AudioManager.Instance.SfxPlay(AudioClipName.AnsCorrect);
+
+            UIAnimFlipBook fb = Resources.Load<UIAnimFlipBook>("PieceOnceClear");
+
+            var f = UIAnimFlipBook.Instantiate(fb, transform.parent);
+
+            f.transform.position = effectTransform.position;
+            
+            f.AnimStart();
+            
+            Destroy(f.gameObject, 1.0f);
             
             transform.position = targetTransform.position;
             transform.localScale = Vector3.one;

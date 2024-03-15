@@ -9,8 +9,10 @@ namespace CSG.Puzzle
 {
     public class BoardPointTouchHandler : BoardPoint
     {
-        [Space] [SerializeField] protected BoardFailPanel _failPanel;
+        [Space] 
+        [SerializeField] protected BoardFailPanel _failPanel;
         [SerializeField] protected PieceMoveHandler _pieceMoveHandler;
+        [SerializeField] protected ClearEffectHandler _clearEffectHandler;
 
         private List<VrButton> _flowerButtonList = new List<VrButton>();
         private List<VrButton> _animalButtonList = new List<VrButton>();
@@ -90,6 +92,11 @@ namespace CSG.Puzzle
                 return;
             }
 
+            if ( BoardHandler.IsPieceCorrect(index))
+            {
+                return;
+            }
+
             if (currentFocus.index == index)
             {
                 OnAnswerCorrect();
@@ -116,24 +123,28 @@ namespace CSG.Puzzle
 
             if (isBoardClear)
             {
-                StartCoroutine(OnBoardCorrect());
+                StartCoroutine(OnBoardCorrect(index));
             }
         }
 
         public static bool isOnBoardCorrectDelay;
 
-        private IEnumerator OnBoardCorrect()
+        private IEnumerator OnBoardCorrect(int index)
         {
             isOnBoardCorrectDelay = true;
 
-            for (float t = 0.0f; t <= 1.5f; t += TimerManager.Instance.Reduce)
+            for (float t = 0.0f; t <= 2.2f; t += TimerManager.Instance.Reduce)
             {
                 yield return null;
             }
 
-            BoardHandler.BoardClear();
+            bool isAllClear = BoardHandler.BoardClear();
+            
+            isOnBoardCorrectDelay = false;
 
             transform.parent.gameObject.SetActive(false);
+            
+            _clearEffectHandler.BoardOnceClear(isAllClear);
         }
 
         private void OnAnswerFail()

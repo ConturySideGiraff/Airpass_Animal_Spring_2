@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3622307592353119875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5644941433778832692}
+  - component: {fileID: 8085760583373459594}
+  - component: {fileID: 8545687253470557829}
+  - component: {fileID: 8314799222597519344}
+  - component: {fileID: 7798360839909429953}
+  m_Layer: 5
+  m_Name: PieceOnceClear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5644941433778832692
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622307592353119875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 380, y: 380}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8085760583373459594
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622307592353119875}
+  m_CullTransparentMesh: 1
+--- !u!114 &8545687253470557829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622307592353119875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b434e2032597df341ae56b34e64c6590, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!225 &8314799222597519344
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622307592353119875}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &7798360839909429953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3622307592353119875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12bfb286e04074b4bb45191a0126d64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flipBookName: 4
+  _ignoreReduce: 0
+  _isLoop: 0
+  _duration: 1
+  _sprites:
+  - {fileID: 21300000, guid: b434e2032597df341ae56b34e64c6590, type: 3}
+  - {fileID: 21300000, guid: 6e8c967a8c14b2d4a905fe9d11bbbfde, type: 3}
+  - {fileID: 21300000, guid: 81b593fadf15edc4c932a0c100692ec9, type: 3}
+  - {fileID: 21300000, guid: e3cf663055503ca448c955c6e1a7a31c, type: 3}
+  - {fileID: 21300000, guid: 78605dc4d71f2cd4bb48b3a1524163a6, type: 3}
+  - {fileID: 21300000, guid: 643f9297290cb5c4798c2bbb3002d26b, type: 3}
+  - {fileID: 21300000, guid: a667f5ef32a22ce4d9fa95ea81b31e14, type: 3}
+  - {fileID: 21300000, guid: 8bc75483770a05046ab5cb4aa95e17ac, type: 3}
+  - {fileID: 21300000, guid: 02a16ae884e7fe44a9f1cf1138eec0f4, type: 3}
+  - {fileID: 21300000, guid: 5e76d2b36516ba34ab4a0792dbaf2a73, type: 3}
+  - {fileID: 21300000, guid: fadb2d84a642daa43bd63baee83c3f7a, type: 3}
+  - {fileID: 21300000, guid: 0eb3f99112098f04ca55d7313e7892ae, type: 3}
+  - {fileID: 21300000, guid: b6fc714f6b62c904eb171a0d4eedd1f6, type: 3}
+  - {fileID: 21300000, guid: 6c364f5a65f84c249bbe3956b0efe301, type: 3}
+  - {fileID: 21300000, guid: 5f4fea741bc272b499e528f56ffe0fd9, type: 3}

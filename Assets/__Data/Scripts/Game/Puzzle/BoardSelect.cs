@@ -21,6 +21,9 @@ namespace CSG.Puzzle
             _dotedImageObject = transform.GetChild(0).gameObject;
         }
 
-     
+        private void OnEnable()
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 }

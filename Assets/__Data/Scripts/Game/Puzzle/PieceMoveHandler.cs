@@ -130,9 +130,7 @@ namespace CSG.Puzzle
                             _moveFlowerList[runtimeIndex].targetTransform = _pointEnd.FlowerPointList[runtimeIndex];
                             _moveFlowerList[runtimeIndex].transform.position = _pointStart.FlowerPointList[i].position;
                             _moveFlowerList[runtimeIndex].transform.localScale = Vector3.one * 0.8f;
-                            _moveFlowerList[runtimeIndex].isCorrect = true;
-                            
-                        
+                            _moveFlowerList[runtimeIndex].isCorrect = false;
                         }
                         
                         _imgFlowerList[i].sprite = colorSpriteList[i];

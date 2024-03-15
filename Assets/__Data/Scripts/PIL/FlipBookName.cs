@@ -1,7 +1,9 @@
 public enum FlipBookName {
-  Butterfly4,
-  Flower_drop,
-  Flower_drop2,
+  BoardOnceClear,
+  ButterflySuccess,
+  CherryBlossomSuccesa,
+  MagnoliaSuccess,
+  PieceOnceClear,
   PlayContent,
   Start,
   Success,

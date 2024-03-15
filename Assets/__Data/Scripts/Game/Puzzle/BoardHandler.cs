@@ -13,7 +13,7 @@ namespace CSG.Puzzle
         [Space] 
         [SerializeField] private PieceMoveHandler pieceMoveHandler;
         [SerializeField] private PieceFocusHandler pieceFocusHandler;
-        [FormerlySerializedAs("_pointTouch")] [SerializeField] private BoardPointTouchHandler pointTouchHandler;
+        [SerializeField] private BoardPointTouchHandler pointTouchHandler;
         [SerializeField] private BoardPointEnd _pointEnd;
         [Space]
         [SerializeField] private GameObject _animalFrame;
@@ -23,7 +23,7 @@ namespace CSG.Puzzle
 
         private static Dictionary<int, BoardRuntimeData> _boardRuntimeDataDic;
 
-        private static int _currentIndex;
+        public static int CurrentIndex { get; private set; }
         
         public void Init()
         {
@@ -39,7 +39,7 @@ namespace CSG.Puzzle
 
         public void OnSelect(int index)
         {
-            _currentIndex = index;
+            CurrentIndex = index;
             
             BoardRuntimeData data = _boardRuntimeDataDic[index];   
 
@@ -63,8 +63,6 @@ namespace CSG.Puzzle
                     break;
             }
 
-            Debug.Log(data.ScriptData.CodeName);
-            
             BoardData scriptData = data.ScriptData;
             BoardRuntimeData runtimeData = _boardRuntimeDataDic[index];
             
@@ -79,9 +77,9 @@ namespace CSG.Puzzle
 
         public static bool PieceCorrect(int index)
         {
-            _boardRuntimeDataDic[_currentIndex].correctIndexArr[index] = true;
+            _boardRuntimeDataDic[CurrentIndex].correctIndexArr[index] = true;
 
-            foreach (bool b in _boardRuntimeDataDic[_currentIndex].correctIndexArr)
+            foreach (bool b in _boardRuntimeDataDic[CurrentIndex].correctIndexArr)
             {
                 if (!b)
                 {
@@ -92,9 +90,21 @@ namespace CSG.Puzzle
             return true;
         }
 
-        public static void BoardClear()
+        public static bool IsPieceCorrect(int index) => _boardRuntimeDataDic[CurrentIndex].correctIndexArr[index];
+
+        public static bool BoardClear()
         {
-             _boardRuntimeDataDic[_currentIndex].IsClear = true;
+            _boardRuntimeDataDic[CurrentIndex].IsClear = true;
+
+            foreach (var boardRuntimeData in _boardRuntimeDataDic.Values)
+            {
+                if (!boardRuntimeData.IsClear)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

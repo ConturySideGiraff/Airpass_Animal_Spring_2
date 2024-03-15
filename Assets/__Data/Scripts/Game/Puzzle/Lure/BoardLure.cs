@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,9 @@ namespace CSG.Puzzle
 {
     public class BoardLure : Lure
     {
-        public override bool IsCanLure { get; }
+        public PieceMove _pieceMove;
+
+        public override bool IsCanLure => !_pieceMove.isCorrect;
         
         public override void Play()
         {
@@ -22,7 +25,7 @@ namespace CSG.Puzzle
 
             if(!ReferenceEquals(_coLure, null)) StopCoroutine(_coLure);
             _coLure = null;
-            
+
             transform.GetChild(0).gameObject.SetActive(false);
         }
         
@@ -30,7 +33,17 @@ namespace CSG.Puzzle
 
         private IEnumerator CoLure()
         {
-            yield return null;
+            var o = transform.GetChild(0).gameObject;
+            
+            while (true)
+            {
+                for (float t = 0.0f; t <= BoardLureHandler.LureOnceDuration; t += TimerManager.Instance.Reduce)
+                {
+                    yield return null;
+                }
+                
+                o.SetActive(!o.activeInHierarchy);
+            }
         }
     }
 }
